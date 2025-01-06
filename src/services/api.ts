@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { ApiResponse, PostType } from '../types/api';
 
-const API_TOKEN = 'AstraCS:LHhEdGqZnFEdXknAANvtAxIx:0de347acfeb7af202ac932a707ae34a942b896f8913cd40ecd05f2a4e2425a53';
+const API_TOKEN = 'AstraCS:NejzgolyZkkDkmjNaLFpWdiK:f5ffa4243c162225e2f77b5d3cfe45eecc6db651de3c5af3add357990098fd1c';
 
 export async function fetchAnalysis(postType: PostType): Promise<string> {
   try {
     const response = await axios.post<ApiResponse>(
-      `/api/lf/fbcce4ce-a7e6-479f-b6cb-b90114ece650/api/v1/run/f8ee21a8-e6db-4286-9bcf-b112e2ed6c17?stream=false`,
+      `https://hackback-4iuo.onrender.com/api/lf/f7875186-7f9a-4c16-9523-3a93771ab793/api/v1/run/e61d8b0b-5ce6-4d22-ae16-8f84f3162248?stream=false`,
       {
         input_value: postType,
         output_type: 'chat',
