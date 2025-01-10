@@ -19,7 +19,10 @@ export function AnalysisResult({
     // Stream content character by character
     const interval = setInterval(() => {
       if (currentIndex < content.length) {
-        setStreamedContent((prev) => prev + content[currentIndex]);
+        const charToAdd = content[currentIndex];
+        if (charToAdd !== undefined) {
+          setStreamedContent((prev) => prev + charToAdd);
+        }
         currentIndex++;
       } else {
         clearInterval(interval); // Stop when complete
