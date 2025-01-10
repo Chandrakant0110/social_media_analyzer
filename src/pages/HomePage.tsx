@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { PostType } from "./types/api";
-import { PostTypeSelector } from "./components/PostTypeSelector";
-import { AnalysisResult } from "./components/AnalysisResult";
-import { ErrorMessage } from "./components/ErrorMessage";
-import { fetchAnalysis } from "./services/api";
+import { PostType } from "../types/api";
+import { PostTypeSelector } from "../components/PostTypeSelector";
+import { AnalysisResult } from "../components/AnalysisResult";
+import { ErrorMessage } from "../components/ErrorMessage";
+import { fetchAnalysis } from "../services/api";
 import { Loader2 } from "lucide-react";
 
 function HomePage() {
