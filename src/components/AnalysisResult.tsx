@@ -9,7 +9,7 @@ interface AnalysisResultProps {
 
 export function AnalysisResult({
   content,
-  streamSpeed = 100,
+  streamSpeed = 300,
 }: AnalysisResultProps) {
   const [streamedContent, setStreamedContent] = useState("");
 
