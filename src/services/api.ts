@@ -1,8 +1,16 @@
 import axios from 'axios';
 import { ApiResponse, PostType } from '../types/api';
 
-const API_TOKEN = import.meta.env.API_TOKEN;
-const API_URL = import.meta.env.API_URL;
+const API_TOKEN = import.meta.env.VITE_LANGFLOW_API_TOKEN;
+const API_URL = import.meta.env.VITE_LANGFLOW_API_URL;
+
+// Add this debug logging
+console.log('API URL:', API_URL);
+console.log('API Token exists:', !!API_TOKEN);
+
+if (!API_URL || !API_TOKEN) {
+  throw new Error('Missing required environment variables. Please check your .env file.');
+}
 
 export async function fetchAnalysis(postType: PostType): Promise<string> {
   try {
@@ -37,6 +45,7 @@ export async function fetchAnalysis(postType: PostType): Promise<string> {
     return response.data.outputs[0].outputs[0].artifacts.message;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      console.error('API Error:', error.response?.data || error.message);
       throw new Error(error.response?.data?.message || 'Failed to fetch analysis');
     }
     throw error;
