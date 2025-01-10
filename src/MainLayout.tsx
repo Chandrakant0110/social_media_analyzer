@@ -22,7 +22,7 @@ const MainLayout: React.FC = () => {
       </main>
 
       <footer className="mt-auto py-6 text-center text-gray-600 dark:text-gray-400">
-        <p>© 2024 Social Media Analyzer. All rights reserved.</p>
+        <p>© 2025 Social Media Analyzer. All rights reserved.</p>
       </footer>
     </div>
   );
