@@ -3,6 +3,21 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 
 export function CustomCursor() {
+  // Check for touch device and small screen
+  const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+      (navigator.maxTouchPoints > 0));
+  };
+
+  const isMobileScreen = () => {
+    return window.innerWidth <= 768;
+  };
+
+  // If it's a touch device or mobile screen, don't render the cursor
+  if (typeof window !== 'undefined' && (isTouchDevice() || isMobileScreen())) {
+    return null;
+  }
+
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<{ x: number; y: number }[]>([]);
   const [isPointer, setIsPointer] = useState(false);
